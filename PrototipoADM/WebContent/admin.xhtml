@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+
+<h:head>
+</h:head>
+
+<h:body>
+	<pm:page id="login">
+		<pm:header title="FATECSENAI" fixed="true"
+			style="background-color: #2fa155;color: rgba(255, 255, 255, 0);">
+		</pm:header>
+		<pm:content>
+			<p:panel header="Painel de Login"
+				style="max-width:250px; margin-left: auto; margin-right: auto;">
+				<p:panelGrid styleClass="ui-responsive">
+					<p:outputLabel value="Usuario" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Senha" />
+					<p:inputText required="true" size="20" />
+				</p:panelGrid>
+				<center>
+					<p:button value="Entrar" styleClass="ui-btn-inline"
+						outcome="pm:atividades?transition=none" />
+				</center>
+			</p:panel>
+		</pm:content>
+	</pm:page>
+
+	<!-- FINAL LOGIN -->
+
+	<pm:page id="atividades">
+		<pm:header title="FATECSENAI" fixed="true"
+			style="background-color: #2fa155;color: rgba(255, 255, 255, 0);">
+			<p:button outcome="pm:login" icon="ui-icon-power"
+				styleClass="ui-btn-right ui-btn-inline"
+				style="background-color: #2fa155; border:none;" />
+			<p:tabMenu>
+				<p:menuitem value="Atividades" icon="ui-icon-edit"
+					outcome="pm:atividades?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cadastrar" icon="ui-icon-user"
+					outcome="pm:cadastrar?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cronogramas" icon="ui-icon-calendar"
+					outcome="pm:cronogramas?transition=none" iconPos="bottom" />
+				<p:menuitem value="Mural" icon="ui-icon-grid"
+					outcome="pm:mural?transition=none" iconPos="bottom" />
+				<p:menuitem value="Postagens" icon="ui-icon-comment"
+					outcome="pm:postagens?transition=none" iconPos="bottom" />
+			</p:tabMenu>
+		</pm:header>
+		<pm:content>
+			<p:panel header="Painel de Atividade"
+				style="max-width:400px; margin-left: auto; margin-right: auto;text-shadow:none">
+				<p:panelGrid styleClass="ui-responsive">
+					<p:outputLabel value="Autor:" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Titulo:" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Descrição" />
+					<p:inputTextarea required="true" size="254" />
+					<p:outputLabel value="Turma:" />
+					<p:selectOneMenu>
+						<f:selectItem itemLabel="ALI251586" />
+						<f:selectItem itemLabel="RDS987456" />
+						<f:selectItem itemLabel="ADS781522" />
+						<f:selectItem itemLabel="ADS227026" />
+						<p:outputLabel value="Data de Entrega:" />
+						<p:calendar required="true" />
+					</p:selectOneMenu>
+				</p:panelGrid>
+				<center>
+					<p:commandButton value="Enviar" styleClass="ui-btn-inline" />
+				</center>
+			</p:panel>
+
+		</pm:content>
+		<pm:footer title="Atividades" fixed="true"
+			style="background-color: #2fa155 " />
+	</pm:page>
+
+	<!-- FINAL da Primeira Pagina -->
+
+	<pm:page id="cadastrar">
+		<pm:header title="FATECSENAI" fixed="true"
+			style="background-color: #2fa155;color: rgba(255, 255, 255, 0);">
+			<p:button outcome="pm:login" icon="ui-icon-power"
+				styleClass="ui-btn-right ui-btn-inline"
+				style="background-color: #2fa155; border:none;margin-right: auto;" />
+			<p:tabMenu>
+				<p:menuitem value="Atividades" icon="ui-icon-edit"
+					outcome="pm:atividades?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cadastrar" icon="ui-icon-user"
+					outcome="pm:cadastrar?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cronogramas" icon="ui-icon-calendar"
+					outcome="pm:cronogramas?transition=none" iconPos="bottom" />
+				<p:menuitem value="Mural" icon="ui-icon-grid"
+					outcome="pm:mural?transition=none" iconPos="bottom" />
+				<p:menuitem value="Postagens" icon="ui-icon-comment"
+					outcome="pm:postagens?transition=none" iconPos="bottom" />
+			</p:tabMenu>
+		</pm:header>
+		<pm:content>
+			<p:tabView>
+				<p:tab title="Usuario">
+					<p:panel header="Cadastro de Usuario"
+						style="max-width:400px; margin-left: auto; margin-right: auto;">
+						<p:panelGrid styleClass="ui-responsive">
+							<p:outputLabel value="Usuario" />
+							<p:inputText required="true" size="20" />
+							<p:outputLabel value="Senha" />
+							<p:password required="true" size="20" />
+							<p:outputLabel value="Turma:" />
+							<p:selectOneMenu>
+								<f:selectItem itemLabel="ALI251586" />
+								<f:selectItem itemLabel="RDS987456" />
+								<f:selectItem itemLabel="ADS781522" />
+								<f:selectItem itemLabel="ADS227026" />
+							</p:selectOneMenu>
+						</p:panelGrid>
+						<center>
+							<p:commandButton value="Salvar" styleClass="ui-btn-inline" />
+						</center>
+					</p:panel>
+
+				</p:tab>
+				<p:tab title="Turma">
+					<p:panel header="Cadastro de Turma"
+						style="max-width:400px; margin-left: auto; margin-right: auto;">
+						<p:panelGrid styleClass="ui-responsive">
+							<p:outputLabel value="Titulo" />
+							<p:inputText required="true" size="20" />
+							<p:outputLabel value="Descrição" />
+							<p:inputTextarea required="true" size="255" />
+						</p:panelGrid>
+						<center>
+							<p:commandButton value="Salvar" styleClass="ui-btn-inline" />
+						</center>
+					</p:panel>
+
+				</p:tab>
+			</p:tabView>
+
+		</pm:content>
+		<pm:footer title="Cadastrar" fixed="true"
+			style="background-color: #2fa155 " />
+	</pm:page>
+
+	<!-- FINAL da Segunda Pagina -->
+
+	<pm:page id="cronogramas">
+		<pm:header title="FATECSENAI" fixed="true"
+			style="background-color: #2fa155;color: rgba(255, 255, 255, 0);">
+			<p:button outcome="pm:login" icon="ui-icon-power"
+				styleClass="ui-btn-right ui-btn-inline"
+				style="background-color: #2fa155; border:none;margin-right: auto;" />
+			<p:tabMenu>
+				<p:menuitem value="Atividades" icon="ui-icon-edit"
+					outcome="pm:atividades?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cadastrar" icon="ui-icon-user"
+					outcome="pm:cadastrar?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cronogramas" icon="ui-icon-calendar"
+					outcome="pm:cronogramas?transition=none" iconPos="bottom" />
+				<p:menuitem value="Mural" icon="ui-icon-grid"
+					outcome="pm:mural?transition=none" iconPos="bottom" />
+				<p:menuitem value="Postagens" icon="ui-icon-comment"
+					outcome="pm:postagens?transition=none" iconPos="bottom" />
+			</p:tabMenu>
+		</pm:header>
+		<pm:content>
+			<p:panel header="Painel de Evento"
+				style="max-width:400px; margin-left: auto; margin-right: auto;">
+				<p:panelGrid styleClass="ui-responsive">
+					<p:outputLabel value="Titulo:" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Descrição" />
+					<p:inputTextarea required="true" size="254" />
+					<p:outputLabel value="Turma:" />
+					<p:selectOneMenu>
+						<f:selectItem itemLabel="ALI251586" />
+						<f:selectItem itemLabel="RDS987456" />
+						<f:selectItem itemLabel="ADS781522" />
+						<f:selectItem itemLabel="ADS227026" />
+						<p:outputLabel value="Data do Evento:" />
+						<p:calendar required="true" />
+					</p:selectOneMenu>
+				</p:panelGrid>
+				<center>
+					<p:commandButton value="Enviar" styleClass="ui-btn-inline" />
+				</center>
+			</p:panel>
+
+		</pm:content>
+		<pm:footer title="Cronogramas" fixed="true"
+			style="background-color: #2fa155 " />
+	</pm:page>
+
+	<!-- FINAL da Terceira Pagina -->
+
+	<pm:page id="mural">
+		<pm:header title="FATECSENAI" fixed="true"
+			style="background-color: #2fa155;color: rgba(255, 255, 255, 0);">
+			<p:button outcome="pm:login" icon="ui-icon-power"
+				styleClass="ui-btn-right ui-btn-inline"
+				style="background-color: #2fa155; border:none;margin-right: auto;" />
+			<p:tabMenu>
+				<p:menuitem value="Atividades" icon="ui-icon-edit"
+					outcome="pm:atividades?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cadastrar" icon="ui-icon-user"
+					outcome="pm:cadastrar?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cronogramas" icon="ui-icon-calendar"
+					outcome="pm:cronogramas?transition=none" iconPos="bottom" />
+				<p:menuitem value="Mural" icon="ui-icon-grid"
+					outcome="pm:mural?transition=none" iconPos="bottom" />
+				<p:menuitem value="Postagens" icon="ui-icon-comment"
+					outcome="pm:postagens?transition=none" iconPos="bottom" />
+			</p:tabMenu>
+		</pm:header>
+		<pm:content>
+			<p:panel header="Painel do mural"
+				style="max-width:400px; margin-left: auto; margin-right: auto;">
+				<p:panelGrid styleClass="ui-responsive">
+					<p:outputLabel value="Autor:" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Titulo:" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Descrição" />
+					<p:inputTextarea size="255" />
+					<p:fileUpload mode="simple" />
+				</p:panelGrid>
+				<center>
+					<p:commandButton value="Enviar" styleClass="ui-btn-inline" />
+				</center>
+			</p:panel>
+
+		</pm:content>
+		<pm:footer title="Mural" fixed="true"
+			style="background-color: #2fa155 " />
+	</pm:page>
+
+	<!-- FINAL da Quarta Pagina -->
+
+	<pm:page id="postagens">
+		<pm:header title="FATECSENAI" fixed="true"
+			style="background-color: #2fa155;color: rgba(255, 255, 255, 0);">
+			<p:button outcome="pm:login" icon="ui-icon-power"
+				styleClass="ui-btn-right ui-btn-inline"
+				style="background-color: #2fa155; border:none;margin-right: 0;" />
+			<p:tabMenu>
+				<p:menuitem value="Atividades" icon="ui-icon-edit"
+					outcome="pm:atividades?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cadastrar" icon="ui-icon-user"
+					outcome="pm:cadastrar?transition=none" iconPos="bottom" />
+				<p:menuitem value="Cronogramas" icon="ui-icon-calendar"
+					outcome="pm:cronogramas?transition=none" iconPos="bottom" />
+				<p:menuitem value="Mural" icon="ui-icon-grid"
+					outcome="pm:mural?transition=none" iconPos="bottom" />
+				<p:menuitem value="Postagens" icon="ui-icon-comment"
+					outcome="pm:postagens?transition=none" iconPos="bottom" />
+			</p:tabMenu>
+		</pm:header>
+		<pm:content>
+			<p:panel header="Painel de Postagem"
+				style="max-width:400px; margin-left: auto; margin-right: auto;">
+				<p:panelGrid styleClass="ui-responsive">
+					<p:outputLabel value="Autor:" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Titulo:" />
+					<p:inputText required="true" size="20" />
+					<p:outputLabel value="Descrição" />
+					<p:inputTextarea size="255" />
+					<p:fileUpload mode="simple" />
+				</p:panelGrid>
+				<center>
+					<p:commandButton value="Enviar" styleClass="ui-btn-inline" />
+				</center>
+			</p:panel>
+
+		</pm:content>
+		<pm:footer title="Postagens" fixed="true"
+			style="background-color: #2fa155" />
+	</pm:page>
+
+	<!-- FINAL da Quinta Pagina -->
+
+</h:body>
+</html>
